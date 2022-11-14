@@ -14,14 +14,14 @@ struct MainView: View {
 
 	var body: some View {
 		TabView {
-			ContentView()
+			CreateView()
 					.tabItem {
-						Label("Menu", systemImage: "list.dash")
+						Label("Create", systemImage: "square.and.pencil")
 					}
-//			ContentView()
-//					.tabItem {
-//						Label("Settings", systemImage: "list.dash")
-//					}
+			ListView()
+					.tabItem {
+						Label("List", systemImage: "list.number")
+					}
 		}
 				.enableInjection()
 	}
