@@ -12,19 +12,26 @@ import InjectHotReload
 struct ContentView: View {
 	@ObservedObject private var iO = Inject.observer
 
+	@State private var isBig = true
+
 	var body: some View {
-		VStack(content: {
-			Text("You have arrived my son")
-					.borderedCaption()
-					.padding(20)
+		VStack {
+			Button(action: { isBig.toggle() },
+					label: {
+						Text(isBig ? "isBig!" : "isSmall :(")
+								.borderedCaption()
+								.padding(20)
+								.frame(height: isBig ? 300 : 50)
+								.animation(.easeInOut, value: isBig)
+					})
 
 			Image(systemName: "bus.doubledecker")
 					.resizable()
-					.frame(maxHeight: 10)
-					.frame(maxWidth: 10)
-//					.padding(EdgeInsets(all: 10))
+					.frame(maxHeight: isBig ? 150 : 10)
+					.frame(maxWidth: isBig ? 150 : 10)
+					.animation(.easeInOut, value: isBig)
 
-		})
+		}
 				.enableInjection()
 	}
 }
