@@ -7,7 +7,8 @@ import SwiftUI
 
 extension EdgeInsets {
 	public init(left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) {
-		self.init(left: left, right: right, top: top, bottom: bottom)
+		self.init(top: top, leading: left, bottom: bottom, trailing: right)
+
 	}
 
 	public init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
