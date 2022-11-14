@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SwiftFormatSettings">
+    <option name="enabled" value="ENABLED" />
+    <option name="swiftFormatPath" value="$PROJECT_DIR$/../swift-format/.build/release/swift-format" />
+    <option name="useCustomConfiguration" value="true" />
+    <option name="config" value="{&#10;    &quot;indentation&quot;: {&#10;        &quot;spaces&quot;: 2&#10;    },&#10;    &quot;lineBreakAroundMultilineExpressionChainComponents&quot;: true,&#10;    &quot;lineBreakBeforeControlFlowKeywords&quot;: true,&#10;    &quot;prioritizeKeepingFunctionOutputTogether&quot;: true,&#10;    &quot;tabWidth&quot;: 8&#10;}" />
+  </component>
+</project>
