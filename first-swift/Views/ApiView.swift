@@ -6,13 +6,12 @@ import SwiftUI
 
 struct ApiView: View {
   private let api = APIController()
-    @State var idx: Int = 1
+  @State var idx: Int = 1
   @State var data: Todo?
 
   func getData() async throws {
     do {
-    
-    data = try await api.getData(idx: idx)
+      data = try await api.getData(idx: idx)
       idx += 1
     } catch {
       print("getData failed to fetch \(error)")
@@ -38,9 +37,8 @@ struct ApiView: View {
   }
 }
 
-
 struct ApiView_Previews: PreviewProvider {
   static var previews: some View {
-      ApiView(idx: 10)
+    ApiView(idx: 10)
   }
 }
