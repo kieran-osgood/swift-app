@@ -10,20 +10,14 @@ struct TodoItem: Identifiable {
   let id = UUID()
   let text: String
 }
-enum DBC: Error {
-  case preconditionsFailed(message: String)
-  //	case insufficientFunds(coinsNeeded: Int)
-}
+
 struct CreateView: View {
   @ObservedObject private var iO = Inject.observer
   @State public var title: String = ""
   @State public var todos: [TodoItem] = []
 
-  func preconditions(of precondition: Bool, message: String) throws {
-  }
-
   func submit() {
-    guard title.isEmpty && title == "" else { return }
+    guard !(title.isEmpty || title == "") else { return }
 
     todos.append(TodoItem(text: title))
     title = ""
@@ -35,12 +29,11 @@ struct CreateView: View {
 
   var body: some View {
     VStack(alignment: .center) {
-      Text("Create")
-        .font(.system(size: 36))
+      Text("To-Do's")
+        .font(.largeTitle)
         .padding(EdgeInsets(bottom: 20))
 
       TodoListView(todos: $todos, delete: delete)
-
       Spacer()
 
       HStack {
@@ -48,9 +41,8 @@ struct CreateView: View {
           .padding(EdgeInsets(all: 10))
           .overlay(
             RoundedRectangle(cornerRadius: 10)
-              .stroke(Color.init(SwifterSwift.Color.CSS.aquamarine))
+              .stroke(Color.init(SwifterSwift.Color.CSS.gray))
           )
-
         Spacer()
 
         Button(
@@ -63,7 +55,7 @@ struct CreateView: View {
       }
 
     }  // Container
-    .padding(4)
+    .padding(.horizontal, 12)
     .enableInjection()
   }
 
@@ -91,20 +83,32 @@ struct TodoListView: View {
       alignment: .topLeading
     )
     //    .isEmpty(todos.count == 0)
-    .borderedCaption()
   }
 }
 
 struct TodoView: View {
   var todo: TodoItem
   var delete: (_ id: UUID) -> Void
+  @State private var showingAlert = false
 
   var body: some View {
     HStack {
-      Image(systemName: "smallcircle.filled.circle")
-      Text(todo.text).font(.system(size: 16))
+      Group {
+        Image(systemName: "smallcircle.filled.circle")
+        Text(todo.text).font(.body)
+      }
+      Spacer()
+      Image(systemName: "trash")
+        .symbolRenderingMode(.multicolor)
+        .onTapGesture {
+          showingAlert = true
+        }
+        .alert("Are you sure?", isPresented: $showingAlert) {
+          Button("Cancel", role: .cancel) {}
+          Button("Confirm", role: .destructive) { delete(todo.id) }
+        }
     }
-    .padding(.bottom, 1)
-    .onTapGesture(perform: { delete(todo.id) })
+    Divider()
+      .padding(.bottom, 1)
   }
 }

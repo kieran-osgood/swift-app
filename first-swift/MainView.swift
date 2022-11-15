@@ -6,33 +6,33 @@
 //
 //
 
-import SwiftUI
 import InjectHotReload
+import SwiftUI
 
 struct MainView: View {
-	@ObservedObject private var iO = Inject.observer
+  @ObservedObject private var iO = Inject.observer
 
-	var body: some View {
-		TabView {
-			CreateView()
-					.tabItem {
-						Label("Create", systemImage: "square.and.pencil")
-					}
-			ListView()
-					.tabItem {
-						Label("List", systemImage: "list.number")
-					}
-            ApiView()
-					.tabItem {
-						Label("API", systemImage: "network")
-					}
-		}
-				.enableInjection()
-	}
+  var body: some View {
+    TabView {
+      CreateView()
+        .tabItem {
+          Label("To-Do's", systemImage: "square.and.pencil")
+        }
+      ListView()
+        .tabItem {
+          Label("Animation", systemImage: "list.number")
+        }
+      ApiView()
+        .tabItem {
+          Label("API", systemImage: "network")
+        }
+    }
+    .enableInjection()
+  }
 }
 
 struct MainView_Previews: PreviewProvider {
-	static var previews: some View {
-		MainView()
-	}
+  static var previews: some View {
+    MainView()
+  }
 }
