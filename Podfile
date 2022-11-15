@@ -6,8 +6,9 @@ target 'first-swift' do
   use_frameworks!
 
   # Pods for first-swift
-  pod 'SwifterSwift'
+  pod 'Alamofire'
   pod 'InjectHotReload'
+  pod 'SwifterSwift'
 
   target 'first-swiftTests' do
     inherit! :search_paths

@@ -10,14 +10,20 @@ struct TodoItem: Identifiable {
   let id = UUID()
   let text: String
 }
-
+enum DBC: Error {
+  case preconditionsFailed(message: String)
+  //	case insufficientFunds(coinsNeeded: Int)
+}
 struct CreateView: View {
   @ObservedObject private var iO = Inject.observer
   @State public var title: String = ""
   @State public var todos: [TodoItem] = []
 
+  func preconditions(of precondition: Bool, message: String) throws {
+  }
+
   func submit() {
-    if title.isEmpty { return }
+    guard title.isEmpty && title == "" else { return }
 
     todos.append(TodoItem(text: title))
     title = ""
@@ -84,7 +90,7 @@ struct TodoListView: View {
       maxHeight: .infinity,
       alignment: .topLeading
     )
-//    .isEmpty(todos.count == 0)
+    //    .isEmpty(todos.count == 0)
     .borderedCaption()
   }
 }

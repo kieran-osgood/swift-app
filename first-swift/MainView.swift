@@ -22,6 +22,10 @@ struct MainView: View {
 					.tabItem {
 						Label("List", systemImage: "list.number")
 					}
+            ApiView()
+					.tabItem {
+						Label("API", systemImage: "network")
+					}
 		}
 				.enableInjection()
 	}

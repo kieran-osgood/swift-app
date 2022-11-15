@@ -27,12 +27,15 @@ struct ListView: View {
           action: { isBig.toggle() },
           label: {
             Text(isBig ? "isBig!" : "isSmall :(")
-              .padding(20)
-              .borderedCaption()
+                  .padding(20)
+                  .borderedCaption()
               .frame(height: isBig ? 300 : 50)
               .animation(.easeInOut, value: isBig)
           })
 
+          Button("some new button") {
+              print("")
+          }
         Spacer()
 
         Image(systemName: "bus.doubledecker")
@@ -52,3 +55,4 @@ struct ListView_Previews: PreviewProvider {
     ListView()
   }
 }
+

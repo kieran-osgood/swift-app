@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.6.2)
   - InjectHotReload (1.2.2)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
@@ -27,18 +28,21 @@ PODS:
   - SwifterSwift/UIKit (5.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - InjectHotReload
   - SwifterSwift
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - InjectHotReload
     - SwifterSwift
 
 SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   InjectHotReload: e524b7c46ec063d84e407e65df5fe251cde19b32
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: 5b3dc7ef2f7a90c16219d5fa9af93cda6e2083d3
+PODFILE CHECKSUM: efd20914452e0efee0c5cadf849af4b654070b1d
 
 COCOAPODS: 1.11.3
