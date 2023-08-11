@@ -14,11 +14,11 @@ struct MainView: View {
 
   var body: some View {
     TabView {
-      CreateView()
+      TodosView()
         .tabItem {
           Label("To-Do's", systemImage: "square.and.pencil")
         }
-      ListView()
+      AnimationsView()
         .tabItem {
           Label("Animation", systemImage: "list.number")
         }

@@ -17,13 +17,13 @@ struct APIController {
     let result = await AF.request(url, method: .get)
       .validate()
       .serializingDecodable(Todo.self).result
+        
     switch result {
-    case let .success(data):
-      return data
-    case let .failure(err):
-      throw err
+        case let .success(data):
+          return data
+        case let .failure(err):
+          throw err
     }
-
   }
 
   //  func getData() async {

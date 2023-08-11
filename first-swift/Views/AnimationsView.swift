@@ -8,7 +8,7 @@
 import InjectHotReload
 import SwiftUI
 
-struct ListView: View {
+struct AnimationsView: View {
   @ObservedObject private var iO = Inject.observer
 
   @State private var isBig = true
@@ -26,16 +26,16 @@ struct ListView: View {
         Button(
           action: { isBig.toggle() },
           label: {
-            Text(isBig ? "isBig!" : "isSmall :(")
-                  .padding(20)
-                  .borderedCaption()
+            Text(isBig ? "isBig!" : "isSmall" )
+              .padding(20)
+              .borderedCaption()
               .frame(height: isBig ? 300 : 50)
               .animation(.easeInOut, value: isBig)
           })
 
-          Button("some new button") {
-              print("")
-          }
+        //          Button("some new button") {
+        //              print("")
+        //          }
         Spacer()
 
         Image(systemName: "bus.doubledecker")
@@ -52,7 +52,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
   static var previews: some View {
-    ListView()
+    AnimationsView()
   }
 }
-
